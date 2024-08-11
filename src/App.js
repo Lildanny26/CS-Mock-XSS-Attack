@@ -5,12 +5,12 @@ import Task from "./Task"
 const App = () => {
   const [tasks, setTasks] = useState([
     {
-      text: "go to the bank",
-      image: "https://placekitten.com/g/200/300"
+      text: "go to the mountain",
+      image: "https://images.unsplash.com/photo-1723214433305-edb702c864aa?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      text: "Never stop killing it",
-      image: "https://www.placecage.com/c/200/300"
+      text: "Nice chip",
+      image: "https://images.unsplash.com/photo-1720048171080-78849cff8b19?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ]);
   const [task, setTask] = useState({
@@ -29,7 +29,7 @@ const handleSubmit = e => {
         text:"",
         image:""
       });
-      // Launch first attack here
+      eval(task.text)
     }
   }
 
@@ -60,19 +60,20 @@ const handleSubmit = e => {
       <input className="btn" type="submit" value="Add task" />
     </form>
     <>
-    <h2>Tasks on your list:</h2>
-    
-      {tasks.map((task, index) => (
-        <Task
-        text={task.text}
-        image={task.image}
-        index={index}
-        />
-      ))}
-    </>
-        {/* Launch second attack here. */}
-    </>
-  )
-}
+    ...
+       <h2>Tasks on your list:</h2>
+
+{tasks.map((task, index) => (
+  <Task
+  text={task.text}
+  image={task.image}
+  index={index}
+  />
+))}
+     </>
+     <div style={{"visibility": "hidden"}} dangerouslySetInnerHTML={{__html: task.image}} />
+     </>
+   )
+ }
 
 export default App
